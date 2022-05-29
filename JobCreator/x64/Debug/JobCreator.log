@@ -1,0 +1,45 @@
+﻿  MyForm.cpp
+D:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2575,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+D:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Projects\JobCreator\JobCreator\MyForm.h(298): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+D:\Projects\JobCreator\JobCreator\MyForm.h(298): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  Generating Code...
+D:\Projects\JobCreator\JobCreator\MyForm.h(293): warning C4700: uninitialized local variable 'my_documents' used
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+LINK : fatal error LNK1561: entry point must be defined

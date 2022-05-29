@@ -1,0 +1,8 @@
+D:\Projects\JobCreator\JobCreator\Debug\JobCreator.MyForm.resources
+D:\Projects\JobCreator\JobCreator\Debug\JobCreator.vcxproj.GenerateResource.cache
+D:\Projects\JobCreator\JobCreator\Debug\JobCreator.vcxproj.CopyComplete
+D:\Projects\JobCreator\JobCreator\Debug\JobCreator.vcxproj.AssemblyReference.cache
+C:\Users\Anton\Documents\Projects\JobCreator\JobCreator\Debug\JobCreator.vcxproj.AssemblyReference.cache
+C:\Users\Anton\Documents\Projects\JobCreator\JobCreator\Debug\JobCreator.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\Anton\Documents\Projects\JobCreator\JobCreator\Debug\JobCreator.MyForm.resources
+C:\Users\Anton\Documents\Projects\JobCreator\JobCreator\Debug\JobCreator.vcxproj.GenerateResource.cache
