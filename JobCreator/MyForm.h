@@ -111,6 +111,9 @@ namespace JobCreator {
 	private: System::Windows::Forms::ToolStripMenuItem^ donateToolStripMenuItem;
 	private: System::Windows::Forms::ComboBox^ trailerVariation;
 	private: System::Windows::Forms::Label^ label14;
+	private: System::Windows::Forms::ComboBox^ parkingDifficulty;
+
+	private: System::Windows::Forms::Label^ label15;
 	protected:
 
 	private:
@@ -165,6 +168,8 @@ namespace JobCreator {
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->trailerVariation = (gcnew System::Windows::Forms::ComboBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->parkingDifficulty = (gcnew System::Windows::Forms::ComboBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -407,11 +412,28 @@ namespace JobCreator {
 			resources->ApplyResources(this->label14, L"label14");
 			this->label14->Name = L"label14";
 			// 
+			// parkingDifficulty
+			// 
+			this->parkingDifficulty->FormattingEnabled = true;
+			this->parkingDifficulty->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+				resources->GetString(L"parkingDifficulty.Items"),
+					resources->GetString(L"parkingDifficulty.Items1")
+			});
+			resources->ApplyResources(this->parkingDifficulty, L"parkingDifficulty");
+			this->parkingDifficulty->Name = L"parkingDifficulty";
+			// 
+			// label15
+			// 
+			resources->ApplyResources(this->label15, L"label15");
+			this->label15->Name = L"label15";
+			// 
 			// MyForm
 			// 
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
+			this->Controls->Add(this->label15);
+			this->Controls->Add(this->parkingDifficulty);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->trailerVariation);
 			this->Controls->Add(this->label13);
@@ -508,6 +530,8 @@ namespace JobCreator {
 			this->distanceBox->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->urgencyCombobox->BackColor = System::Drawing::SystemColors::Window;
 			this->urgencyCombobox->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->parkingDifficulty->BackColor = System::Drawing::SystemColors::Window;
+			this->parkingDifficulty->ForeColor = System::Drawing::SystemColors::ControlText;
 
 			this->cargocomboBox->BackColor = System::Drawing::SystemColors::Window;
 			this->cargocomboBox->ForeColor = System::Drawing::SystemColors::ControlText;
@@ -567,6 +591,8 @@ namespace JobCreator {
 			this->distanceBox->ForeColor = System::Drawing::SystemColors::Window;
 			this->urgencyCombobox->BackColor = System::Drawing::SystemColors::ControlText;
 			this->urgencyCombobox->ForeColor = System::Drawing::SystemColors::Window;
+			this->parkingDifficulty->BackColor = System::Drawing::SystemColors::ControlText;
+			this->parkingDifficulty->ForeColor = System::Drawing::SystemColors::Window;
 
 			this->cargocomboBox->BackColor = System::Drawing::SystemColors::ControlText;
 			this->cargocomboBox->ForeColor = System::Drawing::SystemColors::Window;
@@ -680,7 +706,7 @@ namespace JobCreator {
 private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) 
 {
 	System::Windows::Forms::DialogResult check;
-	check = this->about->Show("Job Creator and Teleporter for ETS2\nVersion: 1.0\n\nNews:\n- Added trailer variations for teleport\n- Many other fixes and improvements from beta version\n\n© 2022 Tonisko\n\n\nBig thanks goes to:\n• sunwinbus -> Great helping with development\n• c0de -> Helping with development\n• All pre-release testers\n\n\nWant to support me? Feel free to donate by going to Help -> Donate, any support is highly appreciated!", "App info", MessageBoxButtons::OK, MessageBoxIcon::None);
+	check = this->about->Show("Job Creator and Teleporter for ETS2\nVersion: 1.0\n\nNews:\n- Added trailer variations for teleport\n- Added parking difficulties for loading\n- Many other fixes and improvements from beta version\n\n© 2022 Tonisko\n\n\nBig thanks goes to:\n• sunwinbus -> Great helping with development\n• c0de -> Helping with development\n• All pre-release testers\n\n\nWant to support me? Feel free to donate by going to Help -> Donate, any support is highly appreciated!", "App info", MessageBoxButtons::OK, MessageBoxIcon::None);
 }
 
 // Changing of the profile in comboBox (same as half of the startup + it executes right after it)
@@ -1101,6 +1127,10 @@ private: System::Void desCitycomboBox_SelectedIndexChanged(System::Object^ sende
 	this->urgencyCombobox->SelectedIndex = 0;
 	this->label13->Visible = true;
 
+	this->parkingDifficulty->Visible = true;
+	this->parkingDifficulty->SelectedIndex = 0;
+	this->label15->Visible = true;
+
 	this->button2->Enabled = true;
 	this->statusLabel->Text = "Ready.";
 }
@@ -1205,7 +1235,7 @@ private: System::Void trailerTypecomboBox_SelectedIndexChanged(System::Object^ s
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
 {
 	System::Windows::Forms::DialogResult check;
-	check = this->about->Show("This feature is experimental! Make sure you have checked \"Double trailers\" in case you have one! \nDo you wish to proceed?", "Warning", MessageBoxButtons::YesNo, MessageBoxIcon::Exclamation);
+	check = this->about->Show("Make sure you have chosen the right type of the trailer!\nDo you wish to proceed?", "Warning!", MessageBoxButtons::YesNo, MessageBoxIcon::Exclamation);
 	if (check == System::Windows::Forms::DialogResult::No)
 	{
 		return;
@@ -1229,11 +1259,11 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	if (this->telComCombobox->GetItemText(this->telComCombobox->SelectedItem)->Length < sizeof(cStr))
 		sprintf(cStr, "%s", this->telComCombobox->GetItemText(this->telComCombobox->SelectedItem));
 	std::string stdstr2 = cStr;
-	if (this->trailerVariation->SelectedIndex <= 3)
+	if (this->trailerVariation->SelectedIndex <= 3 || this->parkingDifficulty->SelectedIndex == 1)
 	{
 		action = sqlite3_prepare_v2(db, "SELECT source_target_medium FROM cities WHERE town=? AND company=?", -1, &stmt, NULL);
 	}
-	else
+	if (this->trailerVariation->SelectedIndex > 3 || this->parkingDifficulty->SelectedIndex == 0)
 	{
 		action = sqlite3_prepare_v2(db, "SELECT target FROM cities WHERE town=? AND company=?", -1, &stmt, NULL);
 	}
@@ -1263,7 +1293,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		ss >> coords[i];
 	}
 
-// Calculating movement based on the direction of the coordinates for parking
+// Calculating movement based on the direction of the coordinates for parking, also based on the trailer
 	float length;
 	switch (this->trailerVariation->SelectedIndex)
 	{
@@ -1303,14 +1333,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			return;
 		}
 	}
-	/*if (!this->doubleCheckBox->Checked)
-	{
-		length = 13.7;
-	}
-	else if (this->doubleCheckBox->Checked)
-	{
-		length = 22.7;
-	}*/
 	if ((acos(coords[3]) * 180 / 3.141592654) < 90 || (acos(coords[3]) * 180 / 3.141592654) > 270)
 	{
 		coords[0] = coords[0] - sin(asin(coords[5]) * 2) * length;
@@ -1441,40 +1463,29 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	sqlite3_finalize(stmt);
 
-// Double Trailer is used
-	if (this->trailerVariation->SelectedIndex <= 3)
+// Double or longer trailer is used / which parking is selected
+	if (this->trailerVariation->SelectedIndex <= 3 || this->parkingDifficulty->SelectedIndex == 1)
 	{
 		action = sqlite3_prepare_v2(db, "SELECT source_target_medium FROM cities WHERE town=? AND company=?", -1, &stmt, NULL);
-		sqlite3_bind_text(stmt, 1, stdstr[0].c_str(), -1, SQLITE_TRANSIENT);
-		sqlite3_bind_text(stmt, 2, stdstr[1].c_str(), -1, SQLITE_TRANSIENT);
-		if (action != SQLITE_OK)
-		{
-			this->statusLabel->Text = "ERROR: Database failed to fetch fata.";
-			return;
-		}
-		while ((action = sqlite3_step(stmt)) == SQLITE_ROW)
-		{
-			unsigned const char* temp = sqlite3_column_text(stmt, 0);
-			coordinates[3] = reinterpret_cast<const char*>(temp);
-		}
 		stdstr[8] = "false";
 	}
-	else if (this->trailerVariation->SelectedIndex > 3)
+	if (this->trailerVariation->SelectedIndex > 3 || this->parkingDifficulty->SelectedIndex == 0)
 	{
 		action = sqlite3_prepare_v2(db, "SELECT target FROM cities WHERE town=? AND company=?", -1, &stmt, NULL);
-		sqlite3_bind_text(stmt, 1, stdstr[0].c_str(), -1, SQLITE_TRANSIENT);
-		sqlite3_bind_text(stmt, 2, stdstr[1].c_str(), -1, SQLITE_TRANSIENT);
-		if (action != SQLITE_OK)
-		{
-			this->statusLabel->Text = "ERROR: Database failed to fetch fata.";
-			return;
-		}
-		while ((action = sqlite3_step(stmt)) == SQLITE_ROW)
-		{
-			unsigned const char* temp = sqlite3_column_text(stmt, 0);
-			coordinates[3] = reinterpret_cast<const char*>(temp);
-		}
 		stdstr[8] = "true";
+	}
+
+	sqlite3_bind_text(stmt, 1, stdstr[0].c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_text(stmt, 2, stdstr[1].c_str(), -1, SQLITE_TRANSIENT);
+	if (action != SQLITE_OK)
+	{
+		this->statusLabel->Text = "ERROR: Database failed to fetch fata.";
+		return;
+	}
+	while ((action = sqlite3_step(stmt)) == SQLITE_ROW)
+	{
+		unsigned const char* temp = sqlite3_column_text(stmt, 0);
+		coordinates[3] = reinterpret_cast<const char*>(temp);
 	}
 	sqlite3_finalize(stmt);
 	sqlite3_close(db);
