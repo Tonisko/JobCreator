@@ -654,7 +654,7 @@ namespace JobCreator {
 			catch (System::Exception^)
 			{
 				System::Windows::Forms::DialogResult check;
-				check = this->about->Show("No profiles were found in documents. Do you wish to choose folder automatically?", "Error", MessageBoxButtons::YesNo, MessageBoxIcon::Error);
+				check = this->about->Show("No profiles were found in documents. Do you wish to choose folder manually?", "Error", MessageBoxButtons::YesNo, MessageBoxIcon::Error);
 				if (check == System::Windows::Forms::DialogResult::Yes)
 				{
 					FolderBrowserDialog^ dialog = gcnew FolderBrowserDialog();
