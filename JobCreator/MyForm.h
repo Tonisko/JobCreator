@@ -813,23 +813,23 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	char mystring[2048];
 	std::string line = "";
 	std::string town;
+	std::string townfin;
 	sqlite3* db2;
 	sqlite3_open("data.db3", &db2);
-	task = "CREATE TABLE IF NOT EXISTS distances (source, target, distance, ferry_time)";
-
+	/*
+	action = sqlite3_exec(db, "PRAGMA journal_mode = MEMORY", NULL, 0, NULL);
+	if (action != SQLITE_OK)
+	{
+		this->statusLabel->Text = "ERROR: Database interation failed.";
+		return;
+	}
+	*/
 	sqlite3_stmt* stmt2;
 	sqlite3_prepare_v2(db2, "SELECT source FROM distances WHERE (source=? AND target=?) OR (source=? AND target=?)", -1, &stmt2, NULL);
 
 	sqlite3_stmt* stmt3;
 	sqlite3_prepare_v2(db2, "INSERT INTO distances VALUES (?,?,?,?)", -1, &stmt3, 0);
 
-	action = sqlite3_exec(db2, task, NULL, 0, NULL);
-	action = sqlite3_exec(db2, "PRAGMA journal_mode=WAL", NULL, 0, NULL);
-	if (action != SQLITE_OK)
-	{
-		this->statusLabel->Text = "ERROR: Database interaction failed.";
-		return;
-	}
 	while (fgets(mystring, 2048, file) != NULL)
 	{
 		line = "";
@@ -878,7 +878,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 						{
 							line.erase(remove(line.begin(), line.end(), '"'), line.end());
 							line.erase(remove(line.begin(), line.end(), '\n'), line.end());
-							std::string townfin = line.substr(line.find_last_of(".") + 1);
+							townfin = line.substr(line.find_last_of(".") + 1);
 							sqlite3_bind_text(stmt2, 1, town.c_str(), -1, SQLITE_TRANSIENT);
 							sqlite3_bind_text(stmt2, 2, townfin.c_str(), -1, SQLITE_TRANSIENT);
 							sqlite3_bind_text(stmt2, 3, townfin.c_str(), -1, SQLITE_TRANSIENT);
@@ -1041,6 +1041,9 @@ private: System::Void telCityCombobox_SelectedIndexChanged(System::Object^ sende
 	this->telComCombobox->Visible = true;
 	this->label9->Visible = true;
 	this->button3->Visible = true;
+
+	this->trailerVariation->Visible = true;
+	this->label14->Visible = true;
 
 	this->statusLabel->Text = "Ready.";
 }

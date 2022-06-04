@@ -150,7 +150,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="darkMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>132, 22</value>
   </data>
   <data name="darkMode.Text" xml:space="preserve">
     <value>Dark mode</value>
@@ -162,13 +162,13 @@
     <value>Settings</value>
   </data>
   <data name="aboutToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>112, 22</value>
   </data>
   <data name="aboutToolStrip.Text" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="donateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>112, 22</value>
   </data>
   <data name="donateToolStripMenuItem.Text" xml:space="preserve">
     <value>Donate</value>
@@ -204,7 +204,7 @@
     <value>34</value>
   </data>
   <data name="profilescomboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 50</value>
+    <value>15, 50</value>
   </data>
   <data name="profilescomboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 21</value>
@@ -228,7 +228,7 @@
     <value>32</value>
   </data>
   <data name="savecomboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 50</value>
+    <value>231, 50</value>
   </data>
   <data name="savecomboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -351,7 +351,7 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>46, 119</value>
+    <value>45, 119</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -532,7 +532,7 @@
     <value>NoControl</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>665, 48</value>
+    <value>673, 49</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -559,7 +559,7 @@
     <value>20</value>
   </data>
   <data name="dbComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 50</value>
+    <value>383, 50</value>
   </data>
   <data name="dbComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 21</value>
@@ -697,7 +697,7 @@
     <value>14</value>
   </data>
   <data name="telComCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 291</value>
+    <value>160, 291</value>
   </data>
   <data name="telComCombobox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -835,7 +835,7 @@
     <value>NoControl</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>665, 191</value>
+    <value>665, 194</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
@@ -865,7 +865,7 @@
     <value>NoControl</value>
   </data>
   <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>480, 289</value>
+    <value>480, 290</value>
   </data>
   <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
@@ -964,7 +964,7 @@
     <value>Urgent</value>
   </data>
   <data name="urgencyCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 195</value>
+    <value>417, 195</value>
   </data>
   <data name="urgencyCombobox.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 21</value>
@@ -1102,7 +1102,7 @@
     <value>Skilled</value>
   </data>
   <data name="parkingDifficulty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 194</value>
+    <value>526, 195</value>
   </data>
   <data name="parkingDifficulty.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 21</value>
